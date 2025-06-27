@@ -1,0 +1,12 @@
+# Block access to source maps
+/*.map /404.html 404
+
+# Block direct access to assets
+/assets/* /404.html 404
+
+# Allow font files
+!/assets/*.woff2
+!/assets/*.woff
+
+# Ensure SPA routing works
+/* /index.html 200

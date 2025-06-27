@@ -1,0 +1,84 @@
+@import '@fontsource/orbitron';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased bg-cyber-black text-cyber-secondary overflow-x-hidden;
+  }
+
+  /* Improve tap targets on mobile */
+  button, a {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+@layer components {
+  .cyber-input {
+    @apply bg-cyber-black/50 border border-cyber-secondary/30 rounded-md px-4 py-3 
+      text-cyber-secondary placeholder-cyber-secondary/30 focus:outline-none 
+      focus:border-cyber-primary focus:shadow-neon-pink transition-all duration-300
+      w-full sm:w-auto;
+  }
+
+  .cyber-button {
+    @apply px-3 sm:px-4 py-2 bg-cyber-darker border border-cyber-secondary rounded-md
+      hover:shadow-neon hover:border-cyber-secondary hover:text-cyber-secondary
+      transition-all duration-300 uppercase tracking-wider font-medium text-sm
+      disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2
+      focus:outline-none focus:ring-2 focus:ring-cyber-secondary/50
+      whitespace-nowrap min-h-[36px];
+  }
+
+  .cyber-button-primary {
+    @apply border-cyber-primary text-cyber-primary hover:shadow-neon-pink
+      hover:border-cyber-primary hover:text-cyber-primary;
+  }
+
+  .cyber-card {
+    @apply backdrop-blur-md bg-cyber-darker/90 rounded-lg p-4 sm:p-8 border border-cyber-secondary/30
+      hover:shadow-neon transition-all duration-500 w-full;
+  }
+
+  /* Custom scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-cyber-black/30 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-cyber-secondary/30 rounded-full hover:bg-cyber-secondary/50 transition-colors;
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.cyber.secondary.30') theme('colors.cyber.black.30');
+  }
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shine {
+  animation: shine 2s infinite;
+}
+
+/* Key Reconstruction specific styles */
+.reconstruction-progress {
+  @apply h-2 bg-cyber-darker rounded-full overflow-hidden relative;
+}
+
+.reconstruction-progress-bar {
+  @apply h-full bg-cyber-accent absolute left-0 top-0 transition-all duration-1000;
+}
